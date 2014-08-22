@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductoViewDlg" widgetVar="ProductoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProductoTitle}">
+            <h:form id="ProductoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProductoLabel_id}"/>
+                        <h:outputText value="#{productoController.selected.id}" title="#{bundle.ViewProductoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_tipoProducto}"/>
+                        <h:outputText value="#{productoController.selected.tipoProducto}" title="#{bundle.ViewProductoTitle_tipoProducto}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_proveedor}"/>
+                        <h:outputText value="#{productoController.selected.proveedor}" title="#{bundle.ViewProductoTitle_proveedor}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_nombre}"/>
+                        <h:outputText value="#{productoController.selected.nombre}" title="#{bundle.ViewProductoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_foto}"/>
+                        <h:outputText value="#{productoController.selected.foto}" title="#{bundle.ViewProductoTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewProductoLabel_detalles}"/>
+                        <h:outputText value="#{productoController.selected.detalles}" title="#{bundle.ViewProductoTitle_detalles}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProductoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

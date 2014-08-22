@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:h="http://java.sun.com/jsf/html" 
+                xmlns:p="http://primefaces.org/ui" 
+                template="/template.xhtml">
+    <ui:define name="body">
+        <h:form id="loginForm">
+            <h:panelGrid columns="2" border="0">
+                <p:panel header="Iniciar Sesion" id="loginPanel">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" />
+                    <p:panelGrid columns="2" styleClass="no-border" columnClasses="no-border,no-border">
+                        <p:outputLabel value="Usuario" for="username" />
+                        <p:inputText id="username" label="Usuario" value="#{credenciales.username}" />
+                        <p:outputLabel value="Password" for="password" />
+                        <p:password id="password" label="Password" value="#{credenciales.password}" />
+                        <h:outputText value="" />
+                        <p:commandButton id="loginButton" value="Ingresar" update="loginPanel" action="#{loginController.login}" />
+                    </p:panelGrid>
+                    <p:defaultCommand target="loginButton" />
+                    <p:focus for="username" />
+                </p:panel>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

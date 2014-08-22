@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <h:form rendered="#{loginController.loggedIn}">
+        <p:menubar id="menuBar">
+            <p:menuitem value="Inicio" url="/protected/main.xhtml" icon="ui-icon-home"/>
+            <p:submenu label="Administracion de Datos" icon="ui-icon-gear">
+                <p:menuitem value="Producto" outcome="/protected/producto/List.xhtml" />
+                <p:menuitem value="Proveedor" outcome="/protected/proveedor/List.xhtml" />
+                <p:menuitem value="TipoProducto" outcome="/protected/tipoProducto/List.xhtml" />
+            </p:submenu>
+            <f:facet name="options">
+                <h:outputText value="Usuario: #{sesionUsuario.usuario.username}"/>
+                <p:commandButton value="Cerrar Sesion" icon="ui-icon-extlink" 
+                                 actionListener="#{loginController.logout}"
+                                 style="margin-left: 20px"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+</ui:composition>
